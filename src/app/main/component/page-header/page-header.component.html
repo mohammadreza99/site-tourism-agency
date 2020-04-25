@@ -1,0 +1,23 @@
+<div style="overflow:hidden">
+  <div class="container-fluid shadow" [ngClass]="{'header-wrapper2':notBlur,'header-wrapper':!notBlur,'animate':animate}"
+    [style.backgroundImage]="background" [style.height]="height">
+    <div class="row h-100">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 h-100 d-flex align-items-center justify-content-start">
+            <div class="w-100 text-center mt-5" *ngIf="!forSearchPage">
+              <h3 class="regular">{{title}}</h3>
+              <h4 class="mt-4 light">{{subtitle}}</h4>
+            </div>
+            <div class="w-100 text-center mt-5" *ngIf="forSearchPage">
+              <h3 class="regular d-flex align-items-center justify-content-center">
+                <span class="h5 light">نتایج جستجو برای : </span>
+                <span class="regular mr-1 text-warning">{{title}}</span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

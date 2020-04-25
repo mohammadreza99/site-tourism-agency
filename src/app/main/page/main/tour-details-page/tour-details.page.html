@@ -1,0 +1,354 @@
+<page-header [background]="tour.img" [subtitle]="subtitle" [title]="title" [height]="600"></page-header>
+<div class="container">
+  <div class="row py-4">
+    <div class="col-lg-4 col-xl-3">
+      <div class="bg-white rounded sticky-top shadow-sm">
+        <!-- <mat-list-item> -->
+        <!-- <mat-icon class="list" matListIcon>attach_money</mat-icon> -->
+        <div class="d-flex justify-content-between px-4 pt-3">
+          <!-- <h6 class="text-muted mb-2">قیمت تور از</h6> -->
+          <div>
+            <p class="medium mb-0">
+              <span class="h5 list">
+                {{tour.adult.tooman | number: '0.'}}
+              </span>
+              <span class="light ">
+                تومان
+              </span>
+              <span class="d-block mt-2">
+                <span> + </span>
+                <span class="h5 list">
+                  {{tour.adult.euro | number: '0.'}}
+                </span>
+                <span class="light">
+                  یورو
+                </span>
+              </span>
+            </p>
+          </div>
+
+          <div>
+            <div class="bold day text-muted">
+              {{tour.days}}
+            </div>
+            <div>
+              روزه
+            </div>
+          </div>
+        </div>
+
+        <!-- </mat-list-item> -->
+        <mat-list>
+          <mat-list-item>
+            <mat-icon class="" matListIcon>event_note</mat-icon>
+            <h4 matLine class="text-muted">تاریخ</h4>
+            <p matLine class="medium">
+              <span>
+                {{tour.date.startShamsi}}
+              </span>
+              <span class="light">
+                الی
+              </span>
+              <span>
+                {{tour.date.endShamsi}}
+              </span>
+            </p>
+            <mat-divider [inset]="true"></mat-divider>
+          </mat-list-item>
+          <!-- <mat-list-item>
+            <mat-icon class="list" matListIcon>date_range</mat-icon>
+            <h4 matLine class="text-muted">طول سفر</h4>
+            <p matLine class="medium"> {{tour.days}} روز </p>
+            <mat-divider [inset]="true"></mat-divider>
+          </mat-list-item> -->
+          <mat-list-item>
+            <mat-icon class="" matListIcon>offline_pin</mat-icon>
+            <h4 matLine class="text-muted">کد تور</h4>
+            <p matLine class="medium"> {{tour.code}} </p>
+            <mat-divider [inset]="true"></mat-divider>
+          </mat-list-item>
+
+
+
+          <mat-list-item>
+            <mat-icon class="" matListIcon>playlist_add_check</mat-icon>
+            <h4 matLine class="text-muted">دسته بندی</h4>
+            <p matLine class="medium"> {{category}} </p>
+            <mat-divider [inset]="true"></mat-divider>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListIcon>hotel</mat-icon>
+            <h4 matLine class="text-muted">درجه هتل</h4>
+            <p matLine>
+
+              <rating dir="ltr" [ngModel]="tour.hotelRate" [max]="5" [readonly]="true" [customTemplate]="r"></rating>
+              <ng-template #r let-index="index" let-value="value">
+                <mat-icon [style.color]="index < value ? '#f7af1d' : '#fce3b1'">star</mat-icon>
+              </ng-template>
+            </p>
+          </mat-list-item>
+          <mat-list-item class="pt-3 border-top">
+            <h4 matLine class="text-muted text-center ">اشتراک گذاری</h4>
+            <p matLine class="d-flex justify-content-center align-items-center mt-1">
+              <a mat-icon-button class="d-flex align-items-center justify-content-center"
+                [href]="'https://telegram.me/share/url?url='">
+                <img src="../../../../../assets/images/icon/2.png" alt="" style="width:24px;">
+              </a>
+              <a mat-icon-button class="d-flex align-items-center justify-content-center"
+                [href]="'http://www.facebook.com/sharer.php?u='">
+                <img src="../../../../../assets/images/icon/1.png" alt="" style="width:24px;">
+              </a>
+              <a mat-icon-button class="d-flex align-items-center justify-content-center"
+                [href]="'http://plus.google.com/share?url='">
+                <img src="../../../../../assets/images/icon/3.png" alt="" style="width:24px;">
+              </a>
+              <a mat-icon-button class="d-flex align-items-center justify-content-center"
+                [href]="'https://twitter.com/home?status='">
+                <img src="../../../../../assets/images/icon/4.jpeg" alt="" style="width:24px;">
+              </a>
+              <a mat-icon-button class="d-flex align-items-center justify-content-center"
+                [href]="'https://www.linkedin.com/shareArticle?mini=true&url='">
+                <img src="../../../../../assets/images/icon/5.png" alt="" style="width:24px;">
+              </a>
+            </p>
+          </mat-list-item>
+          <mat-list-item class="pt-1">
+            <p matLine class="d-flex align-items-center mt-1">
+              <a mat-raised-button class="yellow w-100" target="_blank"  download>دانلود pdf</a>
+            </p>
+          </mat-list-item>
+        </mat-list>
+
+      </div>
+    </div>
+    <div class="col-lg-8 col-xl-9 rounded ">
+      <div class="d-flex justify-content-center mt-3 mt-lg-0 mb-3 sticky-top">
+        <div class="tabs btn-group justify-content-between w-100 mb-3 pt-1" dir="ltr">
+          <label [class.active]="currentSection=='gallery'" (click)="scroll(gallery)" class="tab text-bold  mb-0"
+            [(ngModel)]="radioModel" btnRadio="gallery">گالری</label>
+          <label [class.active]="currentSection=='section2'" (click)="scroll(comments)" class="tab text-bold  mb-0"
+            [(ngModel)]="radioModel" btnRadio="comments">دیدگاه
+            ها</label>
+          <label [class.active]="currentSection=='plan'" (click)="scroll(plan)" class="tab text-bold  mb-0" [(ngModel)]="radioModel"
+            btnRadio="plan">برنامه
+            سفر</label>
+          <label [class.active]="currentSection=='features'" (click)="scroll(features)" class="tab text-bold  mb-0"
+            [(ngModel)]="radioModel" btnRadio="features">تعرفه ها
+          </label>
+          <label [class.active]="currentSection=='service'" (click)="scroll(service)" class="tab text-bold  mb-0"
+            [(ngModel)]="radioModel" btnRadio="service">خدمات
+            تور</label>
+          <label [class.active]="currentSection=='summary'" (click)="scroll(summary)" class="tab text-bold  mb-0"
+            [(ngModel)]="radioModel" btnRadio="summary">نگاه
+            کلی</label>
+        </div>
+      </div>
+
+
+      <div scrollSpy [spiedTags]="['DIV']" (sectionChange)="onSectionChange($event)">
+        <div #summary class="summary" id="summary">
+          <div class="bg-white p-3 mb-3">
+            <p class="text-justify">{{tour.description}}</p>
+          </div>
+        </div>
+
+
+        <div #service class="w-100 service  pb-60" id="service">
+          <lined-title [lineColor]="'#dcdcdc'" class="d-block mb-4 mt-4" [title]="'خدمات تور'" [titleSize]="18"
+            [lineHeight]="6" [lineThickness]="1" [textAlign]="'right'"></lined-title>
+          <ul class="w-100 list-unstyled flex-wrap pr-3 mb-0 d-xl-flex align-items-start justify-content-between">
+            <li class="d-flex align-items-center mb-1 w-50" *ngFor="let item of tour.services">
+              <mat-icon class="ml-2">done</mat-icon>
+              {{item}}
+            </li>
+          </ul>
+        </div>
+        <div #features class="w-100 features pb-60" id="features">
+          <lined-title [lineColor]="'#dcdcdc'" class="d-block mb-4 mt-4" [title]="'تعرفه ها'" [titleSize]="18"
+            [lineHeight]="6" [lineThickness]="1" [textAlign]="'right'"></lined-title>
+          <ul class="list-unstyled pr-3 mb-0">
+            <li class="d-sm-flex align-items-center mb-1">
+              <span class="d-flex align-items-center">
+                <mat-icon class="ml-2">hotel</mat-icon>
+                هر نفر در اتاق دو تخته :
+              </span>
+              <span class="d-block d-sm-inline mr-sm-1">
+                <span class="font-weight-bold">{{ tour.adult.euro | number:'0.' }} یورو </span>
+                <span class="font-weight-bold mx-2"> + </span>
+                <span class="font-weight-bold">{{ tour.adult.tooman | number:'0.' }} تومان </span>
+              </span>
+            </li>
+            <li class="d-sm-flex align-items-center mb-1">
+              <span class="d-flex align-items-center">
+                <mat-icon class="ml-2">airline_seat_individual_suite</mat-icon>
+                4 تا 12 سال با تخت :
+              </span>
+              <span class="d-block d-sm-inline mr-sm-1">
+                <span class="font-weight-bold">{{ tour.child4To12.euro | number:'0.' }} یورو </span>
+                <span class="font-weight-bold mx-2"> + </span>
+                <span class="font-weight-bold">{{ tour.child4To12.tooman | number:'0.' }} تومان </span>
+              </span>
+            </li>
+            <li class="d-sm-flex align-items-center mb-1">
+              <span class="d-flex align-items-center">
+                <mat-icon class="ml-2">airline_seat_flat</mat-icon>
+                2 تا 4 سال بدون تخت :
+              </span>
+              <span class="d-block d-sm-inline mr-sm-1">
+                <span class="font-weight-bold">{{ tour.child2To4.euro | number:'0.' }} یورو </span>
+                <span class="font-weight-bold mx-2"> + </span>
+                <span class="font-weight-bold">{{ tour.child2To4.tooman | number:'0.' }} تومان </span>
+              </span>
+            </li>
+            <li class="d-sm-flex align-items-center mb-1">
+              <span class="d-flex align-items-center">
+                <mat-icon class="ml-2">child_friendly</mat-icon>
+                زیر 2 سال :
+              </span>
+              <span class="d-block d-sm-inline mr-sm-1">
+                <span class="font-weight-bold">{{ tour.child0To2.euro | number:'0.' }} یورو </span>
+                <span class="font-weight-bold mx-2"> + </span>
+                <span class="font-weight-bold">{{ tour.child0To2.tooman | number:'0.' }} تومان </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div #plan class="plan pb-60" id="plan">
+          <div class="row mt-4">
+            <div class="col-12">
+              <lined-title [lineColor]="'#dcdcdc'" class="d-block mb-4" [title]="'برنامه سفر'" [titleSize]="18"
+                [lineHeight]="6" [lineThickness]="1" [textAlign]="'right'"></lined-title>
+            </div>
+          </div>
+          <!-- <mat-accordion>
+            <mat-expansion-panel class="shadow-none border rounded border-bottom-0" *ngFor="let item of tour.plans | slice:0:plansLenght ;let i=index">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="count text-muted light">{{i+1}}</span>
+                  {{item.title}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{item.subTitle}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p class="text-justify">{{item.description}}</p>
+            </mat-expansion-panel>
+          </mat-accordion> -->
+           <div class="timeline pt-0">
+             <ul *ngFor="let item of tour.plans " class="timeline-month">
+               <li class="timeline-day">
+                 <div class="title-holder">{{item.title}}</div>
+                 <div class="clearfix">
+                   <div class="triangle-border"></div>
+                   <p [innerHTML]="item.description"></p>
+                   <div class="container-fluid images mt-3">
+                     <div class="row">
+                       <div class="col-sm-6" *ngFor="let image of item.gallery">
+                         <img [src]="image.picture" class="w-100 mb-2 img-thumbnail">
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </li>
+             </ul>
+           </div>
+          <button (click)="showPlans(plansLenght)" *ngIf="tour.plans.length > 4" mat-raised-button class="w-100 download-btn mb-0 h5 d-flex align-items-center justify-content-center">
+            {{plansLenght != tour.plans.length ? 'مشاهده کامل' : 'بستن'}}
+          </button>
+        </div>
+
+        <div #comments class="comments pb-60" id="comments">
+          <div class="row mt-4">
+            <div class="col-12">
+              <lined-title [lineColor]="'#dcdcdc'" class="d-block mb-4" [title]="'نظرات مسافران'" [titleSize]="18"
+                [lineHeight]="6" [lineThickness]="1" [textAlign]="'right'"></lined-title>
+            </div>
+          </div>
+          <div class="card mt-2 " *ngFor="let comment of tour.comments;let i=index">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-2 d-flex flex-row flex-md-column justify-content-around">
+                  <div>
+                    <img [src]="comment.img=='' ? 'assets/images/icon/face.jpg' : comment.img" class="img img-rounded img-fluid" />
+                    <p class="text-secondary text-center">{{comment.owner}}</p>
+                  </div>
+
+                  <div class="likes d-flex align-items-center justify-content-center justify-content-md-around">
+                    <div class="d-flex flex-column align-items-center">
+                      <button mat-icon-button (click)="onLikeComment(comment)">
+                        <mat-icon color="primary">thumb_up</mat-icon>
+                      </button>
+                      <p class="light text-muted mb-0">{{comment.likes}}</p>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <button mat-icon-button (click)="onDislikeComment(comment)">
+                        <mat-icon color="warn">thumb_down</mat-icon>
+                      </button>
+                      <p class="light text-muted mb-0">{{comment.dislikes}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="d-flex align-items-center justify-content-around justify-content-md-between">
+                    <rating dir="ltr" [ngModel]="comment.rate" [max]="5" [readonly]="true" [customTemplate]="t"></rating>
+                    <ng-template #t let-index="index" let-value="value">
+                      <mat-icon [style.width]="'auto'" [style.fontSize]="'20px'" [style.color]="index < value ? '#f7af1d' : '#fce3b1'">star</mat-icon>
+                    </ng-template>
+                    <p class="text-muted mb-0">
+                      <span class="regular">
+                        {{comment.date}}
+                      </span>
+                    </p>
+                  </div>
+                  <div class="clearfix"></div>
+                  <p>
+                    {{comment.text}}
+                  </p>
+                </div>
+              </div>
+              <div *ngIf="comment.replayText!=''" class="card card-inner mt-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <img src="assets/images/icon/face.jpg" class="img img-rounded img-fluid" />
+                      <p class="text-secondary text-center">تیم کاریز</p>
+                    </div>
+                    <div class="col-md-10">
+                      <p>
+                        {{comment.replayText}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div #gallery class="gallery" id="gallery">
+          <div class="row mt-4">
+            <div class="col-12">
+              <lined-title [lineColor]="'#dcdcdc'" class="d-block mb-4" [title]="'گالری'" [titleSize]="18" [lineHeight]="6"
+                [lineThickness]="1" [textAlign]="'right'"></lined-title>
+            </div>
+            <div class="col-md-4 col-sm-6 text-center" *ngFor="let image of tour.gallery;let i=index">
+              <a>
+                <div (click)="openModal(i)" class="grid">
+                  <figure class="effect-ming rounded">
+                    <img [src]="image" />
+                    <figcaption>
+                      <mat-icon class="category-caption h2">search</mat-icon>
+                    </figcaption>
+                  </figure>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<light-box [images]="this.tour.gallery"></light-box>

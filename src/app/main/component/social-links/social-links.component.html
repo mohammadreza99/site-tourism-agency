@@ -1,0 +1,16 @@
+<mat-nav-list class="pt-0" *ngIf="!inline">
+  <a mat-list-item [href]="item.linkTo" *ngFor="let item of socialLinks" class="border-bottom">
+    {{item.text}}
+    <span class="d-inline-block">
+      <img class="rounded-circle" [src]="item.icon" *ngIf="isImage">
+      <mat-icon *ngIf="!isImage">{{item.icon}}</mat-icon>
+    </span>
+  </a>
+</mat-nav-list>
+
+<div *ngIf="inline">
+  <a [href]="item.linkTo" [matTooltip]="item.text" class="ml-3 pb-2" *ngFor="let item of socialLinks">
+    <img class="icon" [style.width]="iconWidth" [src]="item.icon" *ngIf="isImage">
+    <mat-icon *ngIf="!isImage">{{item.icon}}</mat-icon>
+  </a>
+</div>

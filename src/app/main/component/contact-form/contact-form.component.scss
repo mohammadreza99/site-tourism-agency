@@ -1,0 +1,5 @@
+@import "../../../../sass/style.scss";
+
+h4 {
+    @include smallTitle;
+}

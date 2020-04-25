@@ -1,0 +1,167 @@
+@import "../../../../sass/style.scss";
+
+:host {
+    width: 100%;
+    display: block;
+    margin-bottom: 70px !important;
+}
+
+.wrapper {
+    position: relative;
+    background-color: #FFF;
+    box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    padding-bottom: 30px;
+}
+
+.right {
+    .img {
+        max-width: 324px;
+        margin-top: -25px;
+        background-color: #000;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .d-flex {
+        bottom: -20px;
+    }
+}
+
+.right h2, .left h2 {
+    font-size: 45px;
+}
+
+.right .discount h2,
+.right .discount h6,
+.left h2,
+.left .title h2 {
+    color: $yellow;
+}
+
+.img {
+    img {
+        transition: all .4s;
+    }
+
+    &:hover {
+        img {
+            opacity: .8;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.col-md-7 {
+    min-height: 280px;
+}
+
+.countinue {
+    left: 7%;
+    width: 80px;
+    height: 80px;
+    background: $yellow;
+    color: #444 !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    transform: translateY(+50%);
+    transition: all .4s;
+
+    &:hover {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        padding-left: 20px;
+
+        mat-icon {
+            opacity: 1;
+            left: 0px;
+        }
+    }
+
+    mat-icon {
+        position: absolute;
+        opacity: 0;
+        top: 50%;
+        left: -10px;
+        transition: 0.5s;
+        transform: translateY(-50%);
+    }
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.logo img {
+    max-width: 100% !important;
+    cursor: pointer;
+}
+
+.days {
+    max-width: 324px;
+    flex-grow: 2;
+}
+
+@media (max-width: 575px) {
+    .category {
+        position: static;
+        border-radius: 0;
+    }
+
+    .left h2 {
+        font-size: 23px;
+    }
+
+    .discount + .text-center > p:first-of-type,
+    .discount + .text-center > p:last-of-type {
+        font-size: 19px;
+    }
+
+    .discount + .text-center > p:nth-child(2) {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .countinue {
+        width: 100%;
+        border-radius: 0;
+
+        &:hover {
+            background-color: orange;
+            box-shadow: none;
+        }
+    }
+
+    .position-absolute {
+        position: static !important;
+    }
+
+    .right .img {
+        width: 100% !important;
+        max-width: none;
+        margin: 10px 0;
+    }
+
+    .days {
+        width: 100% !important;
+        max-width: none;
+    }
+
+    .wrapper {
+        width: 100%;
+        margin: 0;
+    }
+
+    .desc {
+        margin-bottom: 0 !important;
+    }
+
+    .text-md-right.border-bottom {
+        border-bottom: 0 !important;
+    }
+}
+.blueText{
+    color:$blue
+}

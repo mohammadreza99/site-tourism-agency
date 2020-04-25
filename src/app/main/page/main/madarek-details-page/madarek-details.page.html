@@ -1,0 +1,33 @@
+<page-header
+  [title]="country.title"
+  [background]="country.image"
+  [height]="500"
+></page-header>
+<div class="container">
+  <div class="row pt-4">
+    <div class="col-12">
+      <div class="bg-white rounded p-5 shadow-sm">
+        <div class="col-12 description pt-4">
+          <p class="text-justify" *ngFor="let item of country.description">
+            {{item}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-lg-3 col-sm-6 text-center mb-3">
+      <a
+        [href]="country.file"
+        mat-raised-button
+        class="d-flex yellow justify-content-center align-items-center regular p-3 mt-5"
+        download
+      >
+        <mat-icon class="ml-2">save_alt</mat-icon>
+        دانلود فایل مدارک مورد نیاز
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+@import "../../../../sass/style.scss";
+
+:host {
+    display: block;
+    overflow: hidden;
+}
+
+h6 {
+    margin-top: 12px;
+
+    a {
+        line-height: 1.7em;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+}
+
+span:last-of-type {
+    color: $blue;
+}
+
+p {
+    margin: 0;
+
+    @include defaultFont($color: $darkGray);
+}
+
+.image-wrapper img {
+    height: 75px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    @include defaultFont($fontWeight: bold);
+}
+
+.border-right {
+    border-color: rgb(161, 161, 161) !important;
+}
+
+@media (max-width: 1199px) {
+    figure {
+        max-width: 50%;
+    }
+}

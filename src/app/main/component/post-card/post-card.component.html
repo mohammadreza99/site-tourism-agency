@@ -1,0 +1,27 @@
+<div class="wrapper h-100 justify-content-between d-xl-flex mb-xl-0 mb-lg-3 rounded shadow border" [ngClass]="{'flex-row-reverse': reverse}">
+  <div class="product-info w-100 h-100" [ngClass]="{'reverse': reverse,'no-reverse':!reverse}">
+    <div class="product-text position-relative px-4 pt-3 pb-4 h-100">
+      <a routerLink="/blog/details" class="h6 bold mb-3 d-block" [queryParams]="{id:post.id}">
+        {{post.title}}
+      </a>
+      <p class="text-justify">{{post.summary | slice:0:170}}... </p>
+      <div class="d-flex w-100 justify-content-between position-absolute">
+        <h6 class="text-muted">
+          <span class="bold">
+            {{day}}
+          </span>
+          <span class="regular">
+            {{month}}
+          </span>
+        </h6>
+        <h6 class="blueText regular">
+          {{country}}
+        </h6>
+      </div>
+    </div>
+  </div>
+  <div class="product-img w-100 h-100 position-relative">
+    <div class="overlay position-absolute w-100 h-100"></div>
+    <img routerLink="/blog/details" [queryParams]="{id:post.id}" class="w-100 h-100 rounded" [src]="post.image">
+  </div>
+</div>

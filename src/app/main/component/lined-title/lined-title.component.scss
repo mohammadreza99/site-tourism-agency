@@ -1,0 +1,87 @@
+// .wrapper {
+//     position: relative;
+//     z-index: 1;
+//     text-align: var(--text-align) !important;
+
+//     &:before {
+//         content: "";
+//         border-color: var(--line-color) !important;
+//         border-top-width: var(--line-border-top) !important;
+//         border-bottom-width: var(--line-border-bottom) !important;
+//         border-top-style: var(--line-style) !important;
+//         border-bottom-style: var(--line-style) !important;
+//         width: var(--line-width) !important;
+//         height: var(--line-height) !important;
+//         position: absolute;
+//         top: 50%;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         z-index: -1;
+//         transform: translateY(-50%);
+//     }
+
+//     > div {
+//         background: var(--text-background) !important;
+//         padding-left: var(--text-padding-left) !important;
+//         padding-right: var(--text-padding-right) !important;
+//         padding-top: 0;
+//         padding-bottom: 0;
+
+//         h2 {
+//             color: var(--title-color) !important;
+//             font-size: var(--title-size) !important;
+//         }
+
+//         h4 {
+//             color: var(--subTitle-color) !important;
+//             font-size: var(--subTitle-size) !important;
+//         }
+//     }
+// }
+.hr-sect {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.35);
+    margin: 8px 0px;
+
+    .inner-wrapper {
+        padding-left: var(--text-padding-left) !important;
+        padding-right: var(--text-padding-right) !important;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        h2 {
+            color: var(--title-color) !important;
+            font-size: var(--title-size) !important;
+            text-align: var(--text-align) !important;
+        }
+
+        h4 {
+            color: var(--subTitle-color) !important;
+            font-size: var(--subTitle-size) !important;
+            text-align: var(--text-align) !important;
+        }
+    }
+}
+
+.hr-sect::before {
+    display: var(--display-before);
+}
+
+.hr-sect::after {
+    display: var(--display-after);
+}
+
+.hr-sect::before,
+.hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    border-color: var(--line-color) !important;
+    border-top-width: var(--line-border-top) !important;
+    border-bottom-width: var(--line-border-bottom) !important;
+    border-top-style: var(--line-style) !important;
+    border-bottom-style: var(--line-style) !important;
+    height: var(--line-height) !important;
+}

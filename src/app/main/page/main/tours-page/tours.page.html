@@ -1,0 +1,39 @@
+<page-header [animate]="true" [title]="title" [height]="500" [background]="bg" [forSearchPage]="forSearchPage"></page-header>
+<div class="container">
+  <div class="row py-4">
+    <div class="col-lg-3 mt-5" >
+      <div class="sticky-top">
+        <lined-title [title]="'فیلتر'" [lineColor]="'#dcdcdc'" [titleSize]="16" [lineHeight]="6" [lineThickness]="1"
+          [textAlign]="'right'"></lined-title>
+        <p class="mt-4 regular">
+          قیمت (تومان)
+        </p>
+        <multirange [step]="500" [selectedMin]="500000" [selectedMax]="57890000" [min]="500000" [max]="57890000" (selectedMinChange)="onPriceMinChange($event)"
+          (selectedMaxChange)="onPriceMaxChange($event)">
+        </multirange>
+
+        <p class="mt-4 regular">
+          طول سفر (روز)
+        </p>
+        <multirange [selectedMin]="1" [selectedMax]="31" [min]="1" [max]="31" (selectedMinChange)="onDaysMinChange($event)"
+          (selectedMaxChange)="onDaysMaxChange($event)">
+        </multirange>
+        <p class="regular">
+          کلاس تور
+        </p>
+        <mat-checkbox class="d-block tourClasses" (change)="onSelectClass(class,$event)" *ngFor="let class of tourClasses">{{class}}</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="col-lg-9" *ngIf="currentTours.length != 0">
+      <card-type-b *ngFor="let tour of currentTours" [tour]="tour"></card-type-b>
+    </div>
+
+    <div class="col-lg-9" *ngIf="currentTours.length == 0">
+      <div class="text-center">
+        <img src="assets/images/icon/cts.png" style="max-width:150px" alt="">
+        <p class="font-weight-bold text-center mt-3 text-muted">موردی یافت نشد.</p>
+      </div>
+    </div>
+  </div>
+</div>

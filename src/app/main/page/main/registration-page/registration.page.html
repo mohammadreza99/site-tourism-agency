@@ -1,0 +1,14 @@
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-5 p-5 bg-white rounded shadow-lg">
+      <mat-tab-group mat-stretch-tabs dynamicHeight dir="ltr" [selectedIndex]="selectedIndex">
+        <mat-tab label="ورود">
+          <login-form (submit)="onLogin($event)"></login-form>
+        </mat-tab>
+        <mat-tab label="ثبت نام">
+          <register-form (submit)="onSignup($event)"></register-form>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

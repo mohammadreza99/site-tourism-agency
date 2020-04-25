@@ -1,0 +1,17 @@
+<figure class="row py-4 border-bottom mb-0 align-items-center">
+  <div class="image-wrapper col-4 align-self-center">
+    <a routerLink="/blog/details" [queryParams]="{id:recentPost.id}" class="d-block w-100">
+      <img [src]="recentPost.image" [alt]="recentPost.title" class="w-100">
+    </a>
+  </div>
+  <figcaption class="text-right col-8">
+    <h6 class="mt-0">
+      <a class="regular" routerLink="/blog/details" [queryParams]="{id:recentPost.id}">{{recentPost.title}}</a>
+    </h6>
+    <h6>
+      <span class="pl-1 font-weight-bold text-muted">{{day}}</span>
+      <span class="pl-1 text-muted regular">{{month}}</span>
+      <span class="pr-2 border-right regular">{{country}}</span>
+    </h6>
+  </figcaption>
+</figure>

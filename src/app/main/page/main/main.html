@@ -1,0 +1,21 @@
+<mat-sidenav-container class="example-container" dir="rtl" #top>
+    <mat-sidenav #sidenav dir="ltr" class="d-lg-none">
+        <app-menu [sidenav]="true" (itemClicked)="sidenav.close()" (searchClicked)="onSearch($event);sidenav.close()"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content dir="ltr" (scroll)="onScroll($event)">
+        <div #top></div>
+        <app-menu [pageScrolled]="pageScrolled" id="top-navbar" [sidenav]="false" (searchClicked)="onSearch($event)"
+            (sidenavToggle)="sidenav.open()"></app-menu>
+        <div class="container-fluid main">
+            <div class="row">
+                <div class="col-12 px-0" dir="rtl" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+                     <router-outlet (activate)="onActivate($event,top)" #o="outlet"></router-outlet>
+                </div>
+            </div>
+        </div>
+        <footer-area></footer-area>
+        <!-- <button mat-mini-fab class="position-fixed go-top" (click)="onGoTop(top)" [ngClass]="{'ops-1': showGoTop}">
+            <mat-icon class="text-secondary">keyboard_arrow_up</mat-icon>
+        </button> -->
+    </mat-sidenav-content>
+</mat-sidenav-container>

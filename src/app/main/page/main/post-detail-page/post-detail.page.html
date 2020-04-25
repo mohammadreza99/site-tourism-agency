@@ -1,0 +1,37 @@
+<page-header [title]="post.title" [height]="500" [background]="post.image"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-12" *ngIf="post.image">
+            <img class="w-100" [src]="post.image" [alt]="post.title">
+          </div>
+          <div class="col-12 description">
+            <div class="p-5">
+              <div class="detail d-flex justify-content-start">
+                <p class="d-flex align-items-center pl-4 mb-0">
+                  <mat-icon class="ml-2">calendar_today</mat-icon>
+                  {{post.date}}
+                </p>
+                <p class="d-flex align-items-center pr-4 border-right mb-0">
+                  <mat-icon class="ml-2">flag</mat-icon>
+                  {{country}}
+                </p>
+              </div>
+              <h1>{{post.title}}</h1>
+              <p class="text-justify text-muted">
+                {{post.description}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <lined-title [lineColor]="'#dcdcdc'" class="d-block mt-3" [title]="'اخرین مطالب'" [titleSize]="18" [lineHeight]="6"
+          [lineThickness]="1" [textAlign]="'right'"></lined-title>
+        <recent-post *ngFor="let post of recentPosts" [recentPost]="post"></recent-post>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+@import "../../../../sass/style.scss";
+
+.wrapper {
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  width: auto;
+}
+
+a {
+  line-height: 1.7em;
+
+  &:hover {
+    text-decoration: none;
+    color: $yellow;
+  }
+}
+
+.product-info {
+  width: auto;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.reverse::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  z-index: 5;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%) rotate(45deg);
+  right: -15px;
+}
+
+.no-reverse::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  z-index: 5;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%) rotate(45deg);
+  left: -15px;
+}
+
+.product-text {
+  width: auto;
+  text-align: center;
+
+  p {
+    line-height: 1.7em;
+  }
+}
+
+.product-text h1 {
+  padding-top: 52px;
+  font-size: 34px;
+  color: #474747;
+}
+
+.product-text h2 {
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+ngu-tile ::ng-deep .tile {
+  box-shadow: none !important;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.product-img {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.overlay:hover + img {
+  transform: scale(1.2, 1.2);
+}
+
+img {
+  transition: all 600ms;
+}
+
+.position-absolute {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 15px;
+}
+
+@media (min-width: 1201px) {
+  .wrapper {
+    max-height: auto !important;
+    min-height: 250px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .wrapper {
+    min-height: 270px !important;
+    max-height: 270px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .no-reverse::after,
+  .reverse::after {
+    right: auto;
+    top: auto;
+    left: 50%;
+    bottom: -15px;
+    transform: translateY(0) translateX(-50%) rotate(45deg);
+  }
+
+  .product-img,
+  .product-info {
+    height: 50% !important;
+  }
+}
+
+span.bold,
+span.bold + span.regular {
+  color: $yellow;
+}
+.blueText {
+  color: $blue;
+}

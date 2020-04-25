@@ -1,0 +1,35 @@
+<div class="form-group w-100 mt-3">
+  <div class="position-relative">
+    <div slider id="slider-distance">
+      <div>
+        <div inverse-left style="width:100%;"></div>
+        <div inverse-right style="width:100%;"></div>
+
+        <div range [ngStyle]="{
+          'left': (selectedMin-min)/(max-min)*100+'%',
+          'right': (100*(selectedMax))/(max-min)+'%',
+          'background-color':'#ffa900'}"></div>
+
+        <span class="thumb1" thumb [ngStyle]="{'left': (((selectedMin-min)/(max-min)*100)+fit(((selectedMin-min)/(max-min)*100),100-((selectedMin-min)/(max-min)*100)))+'%'}">
+        </span>
+
+        <span class="thumb2" thumb [ngStyle]="{'left': ((100-(100*(selectedMax))/(max-min))+fit((100-(100*(selectedMax))/(max-min)),100-(100-(100*(selectedMax))/(max-min))))+'%'}">
+        </span>
+      </div>
+
+      <input #range1 type="range" [max]="max" [min]="min" [step]="step" (input)="minChange($event)" class="form-control">
+
+      <input #range2 type="range" [max]="max" [min]="min" [step]="step" (input)="maxChange($event)" class="form-control">
+    </div>
+  </div>
+</div>
+<p class="text-center">
+  از
+  <span class="bold">
+    {{range1.value | number: '0.'}}
+  </span>
+  تا
+  <span class="bold">
+    {{range2.value | number: '0.'}}
+  </span>
+</p>

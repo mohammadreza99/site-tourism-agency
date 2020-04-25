@@ -1,0 +1,61 @@
+<page-header [title]="'وبلاگ کاریز'" [height]="500" [background]="'../../../../../assets/images/bg/tour3.jpg'"></page-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3">
+          <mat-form-field floatLabel="never" class="w-100">
+            <input (keydown.enter)="onSearch(searchTerm)" [(ngModel)]="searchTerm" #searchInput matInput placeholder="جستجو در مقالات...">
+            <button class="search-button" mat-icon-button color="accent" matSuffix>
+              <mat-icon class="text-dark">search</mat-icon>
+            </button>
+          </mat-form-field>
+          <lined-title [lineColor]="'#dcdcdc'" class="d-block my-4" [title]="'شاخه های مقالات'" [titleSize]="18"
+            [lineHeight]="6" [lineThickness]="1" [textAlign]="'right'"></lined-title>
+          <mat-nav-list class="pt-0 border-bottom">
+            <a mat-list-item class="all">
+              <div #c class="d-flex align-items-center w-100 h-100 " (click)="onAllClick()">
+                <span class="mr-4">
+                  همه
+                </span>
+              </div>
+            </a>
+          </mat-nav-list>
+          <mat-accordion class="d-block mb-5">
+            <mat-expansion-panel #m class="m-0 shadow-none border-bottom" *ngFor="let item of gharre;let i = index">
+              <mat-expansion-panel-header (click)="onGharreClick(item,i)">
+                <mat-panel-title #g class="align-items-center pr-1">
+                  {{item}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-nav-list class="pt-0">
+                <a mat-list-item class="text-muted border-top" *ngFor="let country of getContries(item);let j = index">
+                  <div #c class="d-flex align-items-center w-100 h-100 regular" (click)="onCountryClick(country.id,i)">
+                    <mat-icon class="ml-2 mr-4">keyboard_arrow_left</mat-icon>
+                    {{country.name}}
+                  </div>
+                </a>
+              </mat-nav-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <lined-title [lineColor]="'#dcdcdc'" class="d-block" [title]="'اخرین مطالب'" [titleSize]="18" [lineHeight]="6"
+            [lineThickness]="1" [textAlign]="'right'"></lined-title>
+          <recent-post *ngFor="let post of recentPosts" [recentPost]="post"></recent-post>
+        </div>
+        <div class="col-xl-9 pt-4">
+          <lined-title [lineColor]="'#dcdcdc'" class="d-block mb-4" [title]="'مطالب جدید'" [titleSize]="18"
+            [lineHeight]="6" [lineThickness]="1" [textAlign]="'right'"></lined-title>
+          <post *ngFor="let post of courrentPosts" [post]="post"></post>
+          <div class="row">
+            <div class="col-12" *ngIf="courrentPosts.length == 0">
+              <div class="text-center">
+                <img src="assets/images/icon/cts.png" style="max-width:150px" alt="">
+                <p class="font-weight-bold text-center mt-3 text-muted">موردی یافت نشد.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

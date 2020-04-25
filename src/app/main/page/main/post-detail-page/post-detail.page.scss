@@ -1,0 +1,51 @@
+@import "../../../../../sass/style.scss";
+
+h1 {
+  @include title;
+
+  padding-bottom: 15px;
+  margin-top: 12px;
+}
+
+:host {
+  display: block;
+}
+
+.bg-white {
+  line-height: 2.2em;
+  font-size: 18px;
+}
+
+.description {
+  @include defaultFont;
+
+  margin-top: -100px;
+
+  > div {
+    width: 90%;
+  }
+}
+
+img {
+  margin-top: 15px;
+  max-height: 700px;
+}
+
+.detail {
+  @include defaultFont($color: $darkGray);
+}
+
+p.text-justify {
+  line-height: 2em;
+
+  @include defaultFont;
+}
+
+.p-5 {
+  background: #fdfdfd;
+}
+
+recent-post:last-of-type ::ng-deep figure {
+  margin-bottom: 0 !important;
+  border-bottom: 0 !important;
+}

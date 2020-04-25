@@ -1,0 +1,44 @@
+<mat-card>
+  <div  [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}" class="img-wrapper position-relative">
+    <div class="overlay position-absolute"></div>
+    <img class="m-0 w-100" mat-card-image [src]="'../../../../../../../'+tour.gallery[0]">
+  </div>
+  <mat-card-content dir="rtl">
+    <div class="row py-2">
+      <div class="col-12 d-flex justify-content-between pt-3 align-items-center px-5">
+        <div class="d-flex align-items-center">
+          <span class="dayCount px-1 bold">
+            {{tour.days}}
+          </span>
+          <span class="day">
+            روزه
+          </span>
+        </div>
+        <rating dir="ltr" [ngModel]="tour.hotelRate" [max]="5" [readonly]="true" [customTemplate]="t"></rating>
+        <ng-template #t let-index="index" let-value="value">
+          <mat-icon [style.color]="index < value ? '#f7af1d' : '#fce3b1'">star</mat-icon>
+        </ng-template>
+      </div>
+      <div class="col-12 title d-flex justify-content-between align-items-center flex-column" [routerLink]="['/tours/details']"
+        [queryParams]="{id:tour.id}">
+        <h4 class="country mb-0 font-weight-bold mb-3 mt-2">
+          {{title}}
+        </h4>
+
+        <div class="text-center text-muted">
+          <div class="mt-2 text-center">
+            <span class="light"> از</span>
+            <span class="medium"> {{ tour.adult.tooman  | number: '0.'}} </span>
+            <span class="light">تومان + </span>
+            <span class="medium">{{tour.adult.euro  | number: '0.'}} </span>
+            <span class="light">یورو</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="m-0 mb-2 pt-0 d-flex justify-content-center">
+    <button class="regular" mat-raised-button [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}">مشاهده
+      جزییات</button>
+  </mat-card-actions>
+</mat-card>

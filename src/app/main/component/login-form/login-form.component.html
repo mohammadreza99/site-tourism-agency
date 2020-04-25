@@ -1,0 +1,20 @@
+<form (ngSubmit)="onLogin(form)" [formGroup]="form">
+  <div class="row pt-4" dir="rtl">
+    <div class="col-12">
+      <mat-form-field class="w-100 py-2">
+        <input matInput placeholder="ایمیل" formControlName="email" required [(ngModel)]="user.email" name="email">
+        <mat-error *ngIf="form.get('email').hasError('required')">{{'لطفا ایمیل خود را وارد کنید.'}}</mat-error>
+        <mat-error *ngIf="form.get('email').hasError('email')">{{'لطفا یک ایمیل صحیح وارد کنید.'}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field class="w-100 py-2">
+        <input matInput placeholder="رمز عبور" formControlName="password" required [(ngModel)]="user.password" name="password">
+        <mat-error *ngIf="form.get('password').invalid">{{'لطفا یک رمز برای حساب خود انتخاب کنید.'}}</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-12 text-center mt-4">
+    <button mat-raised-button class="w-100" color="primary" type="submit" [disabled]="!form.valid">ورود</button>
+  </div>
+</form>

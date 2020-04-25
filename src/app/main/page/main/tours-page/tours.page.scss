@@ -1,0 +1,25 @@
+@import "../../../../../sass/style.scss";
+:host {
+  display: block;
+}
+
+.bg-white {
+  line-height: 2.2em;
+  font-size: 18px;
+}
+
+.sticky-top {
+  top: 100px;
+  z-index: 1;
+}
+
+mat-checkbox {
+  &.mat-checkbox-checked {
+    ::ng-deep .mat-checkbox-background {
+      background-color: $blue;
+    }
+  }
+  ::ng-deep .mat-ripple-element {
+    background-color: rgba($blue, 0.109) !important;
+  }
+}

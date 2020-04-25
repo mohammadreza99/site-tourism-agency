@@ -1,0 +1,195 @@
+<div dir="ltr" class="header">
+    <ngu-carousel class="carousel w-100 " #myCarousel [inputs]="headerCarousel" [dataSource]="carouselItems">
+        <ngu-tile *nguCarouselDef="let item; let i = index" class="px-0 heder">
+            <div class="image-wrapper w-100 d-flex align-items-center justify-content-center position-relative">
+                <div [ngClass]="i==myCarousel.activePoint?'activeBg':''" class="caption w-100 h-100 d-flex align-items-center justify-content-center"
+                    [style.backgroundImage]="item.img">
+                    <div class="bg-overlay d-flex align-items-center justify-content-center flex-column">
+                        <div class="captionTitle" [ngClass]="i==myCarousel.activePoint?'activeTitle':'captionTitle'">
+                            <p class="display-4 medium mb-3 mb-sm-5">{{item.title}}</p>
+                        </div>
+                        <div class="captionSubTitle h3 text-light regular" [ngClass]="i==myCarousel.activePoint?'activeSubTitle':'captionSubTitle'">
+                            <p>{{item.subTitle}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ngu-tile>
+        <button NguCarouselNext class="rightRs text-light d-none d-sm-block">
+            <mat-icon class="justify-content-end">keyboard_arrow_right</mat-icon>
+        </button>
+        <button NguCarouselPrev class="leftRs text-light d-none d-sm-block">
+            <mat-icon class="justify-content-start">keyboard_arrow_left</mat-icon>
+        </button>
+        <ul class="myPoint pl-0" NguCarouselPoint>
+            <li *ngFor="let j of myCarousel.pointNumbers; let i = index" [class.active]="j==myCarousel.activePoint"
+                (click)="myCarousel.moveTo(i)" [style.background]="'url(' + carouselItems[i] + ')'">
+            </li>
+        </ul>
+    </ngu-carousel>
+</div>
+<div class="container-fluid position-relative bg-person mt-5">
+    <div class="person"></div>
+    <div class="row">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-lg-6 col-xl-5">
+                    <div class="p-4 bg-white border rounded shadow">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <a class="d-flex align-items-center" >
+                                    <div class="service-icon-wrapper">
+                                        <img class="service-image mt-3" src="assets/images/icon/airplane.png" alt="">
+                                    </div>
+                                    <div class="text-right mr-4">
+                                        <h2 class="service-title mb-3">
+                                            تورهای نمایشگاهی
+                                        </h2>
+                                        <p class="p-0 text-muted text-right">برگزار کننده کلیه تورهای تخصصی معتبر اروپا
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <a class="d-flex align-items-center" >
+                                    <div class="service-icon-wrapper">
+                                        <img class="service-image mt-3" src="assets/images/icon/world.png" alt="">
+                                    </div>
+                                    <div class="text-right mr-4">
+                                        <h2 class="service-title mb-3">
+                                            تورهای توریستی اروپا
+                                        </h2>
+                                        <p class="p-0 text-right text-muted">برگزار کننده تورهای ویژه اعضای نظام مهندسی
+                                            و
+                                            پزشکی کشور </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12">
+                                <a class="d-flex align-items-center">
+                                    <div class="service-icon-wrapper">
+                                        <img class="service-image mt-3" src="assets/images/icon/hotel.png" alt="">
+                                    </div>
+                                    <div class="text-right mr-4">
+                                        <h2 class="service-title mb-3">
+                                            رزرو هتل در سراسردنیا
+                                        </h2>
+                                        <p class="p-0 text-right  text-muted">رزرو آنلاین ومشاوره رزرو هتلهای سراسر
+                                            دنیا</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid noruz pt-120 pb-120">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pb-60">
+                    <lined-title [title]="'پرفروش ترین تورهای کاریز'" [subTitle]="'برگزار کننده تور ها با کمترین قیمت اما بهترین کیفیت'"
+                        [lineColor]="'#dcdcdc'"></lined-title>
+                </div>
+                <div dir="ltr" class="col-12 most-sales">
+                    <ngu-carousel class="w-100 customers-wrapper" #customers [inputs]="customer" [dataSource]="topSales">
+                        <ngu-tile *nguCarouselDef="let item; let i = index" class="customers">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <card [tour]="item"></card>
+                            </div>
+                        </ngu-tile>
+                        <button NguCarouselNext class="rightRs xxr">
+                            <mat-icon class="justify-content-start">keyboard_arrow_right</mat-icon>
+                        </button>
+                        <button NguCarouselPrev class="leftRs xxl">
+                            <mat-icon class="justify-content-end">keyboard_arrow_left</mat-icon>
+                        </button>
+                    </ngu-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 pb-60 pt-120">
+            <lined-title [title]="'تور های نوروز 98'" [subTitle]="'لذت یک سفر به یاد ماندنی در کنار خانواده'"
+                [lineColor]="'#dcdcdc'"></lined-title>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4" *ngFor="let tour of noruzTours | slice:0:8">
+            <card-type-c [tour]="tour"></card-type-c>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 pb-60 pt-120">
+            <lined-title [title]="'مجله کاریز'" [subTitle]="'جامع ترین و بروز ترین مقالات پیرامون کشور ها'" [lineColor]="'#dcdcdc'"></lined-title>
+        </div>
+        <div class="col-md-6" [ngClass]="{'pl-2 pl-md-0' : i == 0 || i == 2,'pr-2 pr-md-0':i == 1 || i == 3 }" *ngFor="let post of posts | slice:0:5;let i = index">
+            <post-card [post]="post" [reverse]="i == 0 || i == 1 ? false : true"></post-card>
+        </div>
+    </div>
+</div>
+<div class="container-fluid counts mt-5">
+    <div class="row ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 text-center text-dark mt-4 mt-sm-0">
+                    <h1 class="text-dark display-2 font-weight-bold mb-0">
+                        {{postService.getPosts().length}}
+                    </h1>
+                    <h4 class="text-muted">پست</h4>
+                </div>
+                <div class="col-md-3 text-center text-dark mt-4 mt-sm-0">
+                    <h1 class="display-2 font-weight-bold mb-0">
+                        {{touristyToursCount}}
+                    </h1>
+                    <h4 class="text-muted">تور توریستی</h4>
+                </div>
+                <div class="col-md-3 text-center text-dark mt-4 mt-sm-0">
+                    <h1 class="text-dark display-2 font-weight-bold mb-0">
+                        {{namayeshgahiToursCount}}
+                    </h1>
+                    <h4 class="text-muted">تور نمایشگاهی</h4>
+                </div>
+                <div class="col-md-3 text-center text-dark mt-4 mt-sm-0">
+                    <h1 class="text-dark display-2 font-weight-bold mb-0">
+                        {{norouziToursCount}}
+                    </h1>
+                    <h4 class="text-muted">تور نوروزی</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid mt-1 newsLetter khabarname">
+    <div class="row align-items-center justify-content-center h-100">
+        <div class="col-12 text-center text-white mt-5">
+            <h2 class="medium h3">خبر نامه</h2>
+            <h4 class="h5 mt-4 text-light ulight">با عضویت در خبرنامه، از تورهای شگفت انگیز کاریز مطلع شوید.</h4>
+        </div>
+        <div class="col-md-5 col-lg-4">
+            <div class="input-group mb-5" dir="ltr" *ngIf="!registrationSuccess">
+                <div class="input-group-prepend">
+                    <button type="submit" class="yellow input-group-text font-weight-bold" (click)="onRegister()">عضویت</button>
+                </div>
+                <input [formControl]="userEmail" dir="rtl" type="text" class="form-control text-right" placeholder="ایمیل خود را وارد کنید..."
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <p *ngIf="registrationSuccess" class="text-white h5">
+                سپاسگزاریم! ایمیل تایید عضویت در خبرنامه به ایمیل شما ارسال شده.لطفا جهت تایید به ایمیل خود مراجعه
+                کنید.
+            </p>
+        </div>
+    </div>
+</div>

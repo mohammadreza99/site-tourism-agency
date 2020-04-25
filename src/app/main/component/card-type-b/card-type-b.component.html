@@ -1,0 +1,79 @@
+<div class="col-12 wrapper my-5 rounded pb-0">
+  <div class="row">
+    <div class="col-md-4 right position-relative d-flex flex-column">
+      <div class="img rounded border">
+        <img class="logo w-100" [src]="tour.gallery[0]" [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}">
+      </div>
+      <div class="d-none d-md-flex w-100 justify-content-around days align-items-center mt-3 mb-3">
+        <div class="discount text-right">
+          <h2 class="mb-0 h-100 d-flex align-items-center">
+            <span class="font-weight-bold ml-2 display-3">{{ tour.days }}</span>
+            <span class="regular h4"> روزه </span>
+          </h2>
+        </div>
+        <div class="text-center">
+          <p class="h6 font-weight-bold">{{tour.date.startShamsi}}</p>
+          <p class="h6 regular">الی</p>
+          <p class="h6 font-weight-bold">{{tour.date.endShamsi}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 left py-sm-3 position-relative">
+      <div class="title py-2 d-md-flex justify-content-between text-center text-md-right border-bottom">
+        <div>
+          <a [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}">
+            <h1 class="text-dark h4 regular mb-2">
+              {{title}}
+            </h1>
+          </a>
+          <h4 class="mb-3 text-muted h6">
+            <div>{{subtitle}}</div>
+          </h4>
+        </div>
+        <div>
+          <p class="mb-2 d-inline d-md-block">شروع قیمت از : </p>
+          <p class="h5 font-weight-bold d-inline d-md-block d-flex align-items-center">
+            <span class="blueText">
+              {{tour.adult.tooman}}
+            </span> 
+            <span class="regular h6">
+                تومان + 
+              </span>
+            <span class="blueText">
+              {{tour.adult.euro}}
+            </span>
+            <span class="regular h6">
+              یورو
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="d-flex border-bottom d-md-none w-100 justify-content-around align-items-center days mb-3 pb-3 mt-3">
+        <div class="discount text-right">
+          <h2 class="mb-0 h-100">
+            <span class="font-weight-bold">{{ tour.days }}</span>
+            <span> روزه </span>
+          </h2>
+        </div>
+        <div class="text-center">
+          <p class="mb-0 h4 d-inline mx-1">{{tour.date.startShamsi}}</p>
+          <p class="mb-0 h5 d-inline mx-1">الی</p>
+          <p class="mb-0 h4 d-inline mx-1">{{tour.date.endShamsi}}</p>
+        </div>
+      </div>
+      <div class="disc mb-0 mb-md-4 mt-3">
+        <h4 class="font-weight-bold h6 mb-3">خدمات تور : </h4>
+        <ul class="list-unstyled pr-3 d-flex flex-wrap">
+          <li class="d-flex align-items-center mb-1 w-50" *ngFor="let item of tour.services">
+            <mat-icon class="ml-2">done</mat-icon>
+            {{item}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}" class="regular countinue position-absolute d-flex justify-content-center align-items-center text-secondary">
+      مشاهده
+      <mat-icon class="text-secondary">keyboard_arrow_left</mat-icon>
+    </a>
+  </div>
+</div>

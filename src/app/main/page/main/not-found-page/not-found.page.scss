@@ -1,0 +1,34 @@
+:host {
+    display: block;
+}
+
+.container-fluid {
+    background-color: #457aff;
+}
+
+p {
+    font-size: 23px;
+}
+
+h1 {
+    font-size: 15em;
+}
+
+.container-fluid {
+    background-image: url('../../../../../assets/images/bg/1.jpg');
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5)
+}

@@ -1,0 +1,613 @@
+@import "../../../../../sass/style.scss";
+:host {
+  display: block;
+}
+
+.noruz {
+  background-image: url("../../../../../assets/images/bg/pattern.png");
+  background-repeat: repeat;
+}
+
+.counts {
+  padding-top: 50px;
+  padding-bottom: 160px;
+  position: relative;
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0.4;
+    background-image: url("../../../../../assets/images/bg/0.png");
+    background-size: auto;
+    background-position: bottom;
+    background-repeat: repeat-x;
+  }
+}
+
+.bg-person {
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+.person {
+  background-image: url("../../../../../assets/images/bg/person.png");
+  position: absolute;
+  bottom: -34px;
+  left: 0;
+  width: 100%;
+  height: 104%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.card-hover:hover {
+  background: darken($color: #eee, $amount: 10%) !important;
+  cursor: pointer;
+}
+
+.text > h3 {
+  @include smallTitle($fontWeight: normal);
+  line-height: 1.5em;
+}
+
+.image-wrapper img {
+  min-height: 350px;
+}
+
+.image-wrapper .bg-overlay {
+  position: absolute;
+  background-color: rgba(4, 9, 30, 0.45);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.bannerStyle {
+  div {
+    background-color: #ccc;
+    background-size: cover !important;
+    height: 100%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  h1 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.32);
+    color: white;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.tile {
+  min-height: 200px;
+  background-size: cover !important;
+  h1 {
+    text-align: center;
+    line-height: 200px;
+    background: rgba(0, 0, 0, 0.32);
+    color: white;
+    margin: 0;
+  }
+}
+
+h4 {
+  margin: 0;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  padding: 0 15px 10px;
+  text-align: center;
+}
+
+.wBg {
+  background: white;
+}
+
+nav {
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: white;
+  z-index: 2;
+  h1 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.carBtn {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+}
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 50px;
+  border-radius: 999px;
+  left: 0;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 50px;
+  border-radius: 999px;
+  right: 0;
+}
+
+.leftRs1 {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 50px;
+  border-radius: 999px;
+  right: 0;
+}
+
+.rightRs1 {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 50px;
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+  border-radius: 999px;
+  left: 0;
+}
+
+.myPoint {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transform: translateY(-40px);
+  li {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #ffaa0044; // border: 2px solid rgba(0, 0, 0, 0.55);
+    padding: 6px;
+    margin: 0 8px;
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    transition: 0.4s;
+  }
+  li.active {
+    background: #ffaa00cc;
+    transform: scale(1.2);
+  }
+}
+
+.carouselHoved {
+  opacity: 0.4;
+}
+
+.myBannerPoint {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  color: beige;
+  justify-content: center;
+  list-style-type: none;
+  background: rgba(0, 0, 0, 0.34);
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  li {
+    background: #ffaa00cc;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  li.active {
+    transform: translateY(-10px);
+    transition: 0.3s ease all;
+  }
+}
+
+.content {
+  height: 300px;
+}
+
+.list {
+  list-style-position: inside;
+  color: #fff;
+  font-size: 30px;
+  line-height: 60px;
+  li {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: normal;
+  }
+}
+
+.rightRs,
+.leftRs {
+  background-color: transparent;
+  border: none;
+  color: #868e96;
+}
+
+.rightRs mat-icon,
+.leftRs mat-icon {
+  display: flex;
+  align-items: center;
+  font-size: 60px;
+  width: 35px;
+  height: 35px;
+}
+
+.special-service-image {
+  width: 55px;
+}
+
+.customers {
+  padding: 0 15px;
+}
+
+.customer {
+  height: 80px;
+  & ::ng-deep .tile {
+    box-shadow: none !important;
+  }
+}
+
+ngu-carousel.customers-wrapper ::ng-deep .ngucarousel {
+  width: 90%;
+  margin: 0 auto;
+  position: static;
+  overflow-x: hidden;
+  overflow-y: visible !important;
+}
+
+h3.title {
+  @include smallTitle;
+  line-height: 2em;
+}
+
+.separator {
+  position: relative;
+  padding-bottom: 10px;
+  &.text-right {
+    text-align: right;
+    &:after {
+      left: auto;
+      right: 0;
+    }
+  }
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+  }
+  &:before {
+    width: 100%;
+    background: #c7c7c7;
+  }
+  &:after {
+    width: 170px;
+    background: $yellow;
+  }
+}
+
+ngu-tile.heder {
+  padding: 0 !important;
+}
+
+.slider {
+  height: 600px;
+}
+
+.wrapper {
+  height: 280px;
+  display: flex;
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  height: 280px;
+  width: auto;
+}
+
+.product-img img {
+  border-radius: 7px 0 0 7px;
+  height: 280px;
+  width: auto;
+}
+
+.product-info {
+  height: 280px;
+  width: auto;
+  border-radius: 0 7px 10px 7px;
+  background-color: #ffffff;
+}
+
+.product-text {
+  height: 280px;
+  width: auto;
+  text-align: center;
+}
+
+.product-text h1 {
+  padding-top: 52px;
+  font-size: 34px;
+  color: #474747;
+}
+
+.product-text h2 {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+ngu-tile ::ng-deep .tile {
+  box-shadow: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.service-image {
+  max-width: 80px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.service-wrapper {
+  position: relative;
+}
+
+.service-wrapper:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #f5f5f5;
+  border-bottom: solid 1px #efefef;
+}
+
+.service-wrapper .row .text-center {
+  background: #fff;
+}
+
+.service-wrapper .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.service-wrapper .col-sm-4:not(:first-child) {
+  border-right: none;
+}
+
+.service-wrapper .col-sm-4 {
+  border: solid 1px #efefef;
+  background: #fff;
+  box-shadow: rgba(147, 147, 147, 0.1) 0 1px 15px 1px;
+  padding: 25px 15px;
+}
+
+.service-wrapper .container {
+  position: relative;
+  z-index: 2;
+}
+
+.service-title {
+  @include smallTitle;
+}
+
+.service,
+.latest-product h3 {
+  cursor: pointer;
+  @include defaultFont($color: $darkGray);
+}
+
+.newsLetter {
+  background-image: url("../../../../../assets/images/bg/21.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 300px;
+}
+
+.newsLetter:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; // background-image: radial-gradient(#000000c7, #000000c7);
+  background: #000;
+  opacity: 0.7;
+}
+
+.input-group-text {
+  cursor: pointer;
+}
+
+.carousel,
+.heder,
+.image-wrapper {
+  height: 100vh;
+}
+
+.caption {
+  position: absolute;
+  background-size: 100% 100%;
+  background-position: 0 0;
+}
+
+.activeBg {
+  position: absolute;
+  animation: bgPos 10s both;
+}
+
+.captionTitle p {
+  color: #fff;
+  white-space: nowrap;
+  text-align: center center;
+  text-shadow: 0 0 8px rgb(43, 43, 43);
+}
+
+.captionTitle {
+  direction: rtl;
+  width: 0;
+  overflow: hidden;
+}
+
+.activeTitle {
+  font-size: 70px;
+  white-space: nowrap;
+  direction: rtl;
+  width: 0;
+  text-align: center;
+  overflow: hidden;
+  animation: move 4s 600ms cubic-bezier(0.12, 0.32, 0.19, 1.01) both;
+}
+
+.captionSubTitle p {
+  text-shadow: 0 0 8px rgb(0, 0, 0);
+  line-height: 1.8em;
+}
+
+.captionSubTitle {
+  opacity: 0;
+  transform: translateY(50px);
+  max-width: 720px;
+}
+
+.activeSubTitle {
+  animation: rise 1.5s ease both;
+}
+
+.col-md-3.border-left {
+  border-color: #cfcfcf !important;
+}
+
+@keyframes bgPos {
+  from {
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+  }
+  to {
+    background-position: 100% 100%;
+    background-size: 106% 106%;
+  }
+}
+
+@keyframes move {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 574px) {
+  card,
+  card ::ng-deep img {
+    width: 100%;
+  }
+  .caption {
+    background-size: cover !important;
+  }
+  .activeBg {
+    animation: none !important;
+  }
+  .captionTitle p {
+    font-size: 22px;
+  }
+  .captionSubTitle p {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 575px) and (max-width: 767px) {
+  .captionTitle p {
+    font-size: 50px;
+  }
+  .captionSubTitle p {
+    font-size: 30px;
+  }
+  .col-md-3.border-left {
+    border-left: 0 !important;
+  }
+  .captionTitle p {
+    font-size: 30px;
+  }
+  .captionSubTitle p {
+    font-size: 20px;
+  }
+  .activeTitle {
+    animation: move 2.5s 600ms cubic-bezier(0.12, 0.32, 0.19, 1.01) both;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .captionTitle p {
+    font-size: 37px;
+  }
+  .captionSubTitle p {
+    font-size: 23px;
+  }
+}
+
+@media (min-width: 768px) {
+  card {
+    width: 100%;
+  }
+}

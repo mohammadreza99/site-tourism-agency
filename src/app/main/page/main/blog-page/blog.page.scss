@@ -1,0 +1,84 @@
+@import "../../../../../sass/style.scss";
+
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+figure {
+  border-bottom: 1px solid #efefef;
+  padding: 20px 15px;
+}
+
+h6,
+h1 {
+  margin-top: 12px;
+}
+
+p {
+  margin: 0;
+
+  @include defaultFont($color: $darkGray);
+}
+
+.image-wrapper img {
+  border: solid 1px #efefef;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a {
+  @include defaultFont($fontWeight: bold);
+}
+
+h1 {
+  @include title;
+
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 15px;
+}
+
+mat-form-field.mat-focused ::ng-deep .mat-form-field-ripple.mat-accent {
+  background-color: $yellow !important;
+}
+
+button.search-button {
+  width: 47px !important;
+  height: 47px !important;
+}
+
+mat-icon.text-dark {
+  font-size: 25px !important;
+}
+
+recent-post:last-of-type ::ng-deep figure {
+  margin-bottom: 0 !important;
+  border-bottom: 0 !important;
+}
+
+mat-nav-list ::ng-deep .mat-list-item-content {
+  padding: 0 !important;
+}
+
+div.h-100.w-100 {
+  transition: all 0.4s;
+}
+
+.all {
+  background: #fff;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.all:hover {
+  background: rgba(248, 248, 248, 0.589) !important;
+}
+
+mat-expansion-panel ::ng-deep .mat-expansion-panel-body {
+  padding: 0 0 16px !important;
+}
+
+.text-orenge {
+  color: $yellow !important;
+}

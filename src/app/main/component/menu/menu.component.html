@@ -1,0 +1,390 @@
+<div class="sidenav" *ngIf="sidenav">
+  <!-- ============================================================================ -->
+  <!--                                   SIDENAV                                    -->
+  <!-- ============================================================================ -->
+  <mat-nav-list class="pt-0" dir="rtl">
+    <a mat-list-item routerLink="/home" (click)="itemClicked.emit()" class="border-bottom regular">
+      <mat-icon matListIcon>home</mat-icon>
+      صفحه اصلی
+    </a>
+
+    <mat-accordion class="service-accordion border-top" dir="rtl">
+      <mat-expansion-panel class="m-0 shadow-none border-bottom">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="align-items-center">
+            <mat-icon class="ml-2">local_airport</mat-icon>
+            تور ها
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-accordion class="service-accordion">
+          <mat-expansion-panel class="m-0 shadow-none border-bottom bg-light">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="align-items-center pr-2 text-muted">
+                تور های در حال اجرا
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list class="pt-0">
+              <a mat-list-item routerLink="/tours/details" [queryParams]="{id:item.id}" (click)="itemClicked.emit()"
+                class="border-bottom text-muted pr-5" *ngFor="let item of runningTours;let i = index">
+                {{runningToursTitle[i]}}
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="m-0 shadow-none border-bottom bg-light">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="align-items-center pr-2 text-muted">
+                دسته بندی
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list class="pt-0">
+              <a mat-list-item routerLink="/tours" [queryParams]="{id:item.id}" (click)="itemClicked.emit()" class="border-bottom text-muted pr-5"
+                *ngFor="let item of categoryTours">
+                {{item.text}}
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-expansion-panel>
+
+
+
+
+      <mat-expansion-panel class="m-0 shadow-none border-bottom">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="align-items-center">
+            <mat-icon class="ml-2">file_copy</mat-icon>
+            فرم ها و مدارک
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-accordion class="service-accordion">
+          <mat-expansion-panel class="m-0 shadow-none border-bottom bg-light">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="align-items-center pr-2 text-muted">
+                دانلود فرم مشخصات فردی
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list class="pt-0">
+              <button mat-raised-button class="w-100 download-btn mb-0 d-flex align-items-center justify-content-center">
+                <mat-icon class="ml-1">save_alt</mat-icon>
+                دانلود
+              </button>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="m-0 shadow-none border-bottom bg-light">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="align-items-center pr-2 text-muted">
+                مدارک مربوط به سفارت ها
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list class="pt-0">
+              <a mat-list-item routerLink="/madarek" (click)="itemClicked.emit()" class="border-bottom text-muted pr-5"
+                *ngFor="let item of contries;let i = index">
+                {{item}}
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+    <a mat-list-item routerLink="/blog" (click)="itemClicked.emit()" class="border-bottom regular">
+      <mat-icon matListIcon>library_books</mat-icon>
+      مقاله
+    </a>
+
+    <a mat-list-item routerLink="/contact-us" (click)="itemClicked.emit()" class="border-bottom regular">
+      <mat-icon matListIcon>phone</mat-icon>
+      تماس با ما
+    </a>
+
+    <a mat-list-item routerLink="/about-us" (click)="itemClicked.emit()" class="regular">
+      <mat-icon matListIcon>assignment</mat-icon>
+      درباره ما
+    </a>
+  </mat-nav-list>
+
+  <form class="form-inline w-100" dir="rtl">
+    <input (keydown.enter)="onSearch(term)" [(ngModel)]="term" class="form-control w-75 p-2" type="search" placeholder="جستجو کنید..."
+      name="search">
+    <div class="input-group-append w-25" (click)="onSearch(term)">
+      <span class="input-group-text w-100 d-flex justify-content-center">
+        <mat-icon>search</mat-icon>
+      </span>
+    </div>
+  </form>
+</div>
+
+
+
+<!-- ============================================================================ -->
+<!--                                   TOPNAV                                     -->
+<!-- ============================================================================ -->
+
+<div class="container-fluid topBar" id="topBar" dir="rtl" *ngIf="!sidenav">
+  <div class="row">
+    <div class="container">
+      <div class=" row justify-content-between py-2">
+        <div class="phone col-md-6 d-flex align-items-center justify-content-center justify-content-md-start">
+          <mat-icon mat-list-icon class="ml-1 text-light phone">phone</mat-icon>
+          <h3 class="text-light h6 mb-0 light" dir="ltr"> 021 - 88262729</h3>
+        </div>
+        <div class="col-sm-6 d-md-flex align-items-center justify-content-center d-none justify-content-sm-end mt-2 mt-sm-0">
+          <social-links [width]="14" [socialLinks]="socialLinks" [inline]="true"></social-links>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div dir="rtl" class="container-fluid bottomBar sticky-top " *ngIf="!sidenav" [ngStyle]="{'backgroundColor':scrolled?'rgba(34,34,34,.9)':'rgba(255,255,255,.0)'}">
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <nav class="navbar rounded-0 navbar-expand-lg py-0 w-100" [ngStyle]="{'backgroundColor':scrolled?'rgba(34,34,34,.0)':'rgba(255,255,255,.15)'}">
+          <button class="navbar-toggler d-flex py-4 d-lg-none align-items-center justify-content-center p-2" mat-button
+            (click)="sidenavToggle.emit()" aria-controls="navbarSupportedContent">
+            <mat-icon class="navbar-toggler-icon">menu</mat-icon>
+          </button>
+          <div class=" collapse navbar-collapse position-relative d-none d-lg-block justify-content-start" id="navbarSupportedContent">
+            <header id="header" class="header" #header dir="ltr">
+              <nav class="header-nav">
+                <div #searchToggle (click)="openSearchBar($event)">
+                  <button mat-icon-button class="search-button d-flex justify-content-center">
+                    <mat-icon class="search-toggle text-light">{{searchOpened ? 'close' : 'search'}}</mat-icon>
+                  </button>
+                </div>
+                <ul class="menu navbar-nav text-white p-0 position-relative">
+                  <li class="nav-item py-4 ml-3 d-flex align-items-center" routerLink="/home" [routerLinkActive]="'active-link'">
+                    <a class="nav-link text-center p-0">
+                      صفحه اصلی
+                    </a>
+                  </li>
+
+                  <li dropdown class="nav-item py-4 px-3 dropdown position-static">
+                    <a id="button-basic" dropdownToggle class="nav-link px-0 dropdown-toggle flex-column justify-content-center align-items-center"
+                      aria-controls="dropdown-basic">
+                      <span class="d-flex align-items-center">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        تور ها
+                      </span>
+                    </a>
+
+
+                    <ul id="dropdown-basic" *dropdownMenu dir='rtl' class="dropdown-menu  shadow dropdown-menu-right text-right w-100 justify-content-around p-3"
+                      role="menu" aria-labelledby="button-basic">
+                      <li role="menuitem" class="w-50 d-inline-block px-3">
+                        <h4 class="title medium">تور های در حال اجرا</h4>
+                        <mat-nav-list class="pt-0">
+                          <a mat-list-item *ngFor="let item of runningTours;let i=index" routerLink="/tours/details"
+                            [queryParams]="{id:item.id}" class="border-bottom text-muted">
+                            <mat-icon>keyboard_arrow_left</mat-icon>
+                            {{runningToursTitle[i]}}
+                          </a>
+                        </mat-nav-list>
+                      </li>
+                      <li role="menuitem" class="w-50 d-inline-block px-3">
+                        <h4 class="title medium">دسته بندی</h4>
+                        <mat-nav-list class="pt-0">
+                          <a *ngFor="let item of categoryTours;let i = index" mat-list-item routerLink="/tours"
+                            [queryParams]="{id:item.id}" class="border-bottom text-muted">
+                            <mat-icon>keyboard_arrow_left</mat-icon>
+                            {{item.text}}
+                          </a>
+                        </mat-nav-list>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li dropdown class="nav-item py-4 px-3 dropdown position-static">
+                    <a id="button-basic" dropdownToggle class="nav-link px-0 dropdown-toggle flex-column justify-content-center align-items-center"
+                      aria-controls="dropdown-basic">
+                      <span class="d-flex align-items-center">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        فرم ها و مدارک
+                      </span>
+                    </a>
+                    <ul id="dropdown-basic" dir='rtl' *dropdownMenu class="dropdown-menu shadow dropdown-menu-right text-right w-100 justify-content-around p-3"
+                      role="menu" aria-labelledby="button-basic">
+                      <li role="menuitem" class="w-50 d-inline-block px-3">
+                        <h4 class="title mb-4 medium">دانلود فرم مشخصات فردی</h4>
+                        <button mat-raised-button class="w-100 download-btn mb-0 d-flex align-items-center justify-content-center">
+                          <mat-icon class="ml-1">save_alt</mat-icon>
+                          دانلود
+                        </button>
+                      </li>
+                      <li role="menuitem" class="w-50 d-inline-block px-3">
+                        <h4 class="title medium">مدارک مربوط به سفارت ها</h4>
+                        <mat-nav-list class="pt-0">
+                          <a *ngFor="let item of contries;let i = index" [queryParams]="{country:item}" mat-list-item
+                            routerLink="/madarek" class="border-bottom text-muted">
+                            <mat-icon>keyboard_arrow_left</mat-icon>
+                            {{item}}
+                          </a>
+                        </mat-nav-list>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item py-4 px-3 d-flex align-items-center" routerLink="/blog" [routerLinkActive]="'active-link'">
+                    <a class="nav-link text-center p-0">
+                      مقاله
+                    </a>
+                  </li>
+
+                  <li class="nav-item py-4 px-3 d-flex align-items-center" routerLink="/contact-us" [routerLinkActive]="'active-link'">
+                    <a class="nav-link text-center p=-0">
+                      تماس با ما
+                    </a>
+                  </li>
+
+                  <li class="nav-item py-4 px-3 d-flex align-items-center" routerLink="/about-us" [routerLinkActive]="'active-link'">
+                    <a class="nav-link text-center p-0">
+                      درباره ما
+                    </a>
+                  </li>
+
+                </ul>
+                <div class="search-box">
+                  <input #search [(ngModel)]="term" (keydown.enter)="onSearch(term)" type="text" [readonly]="!searchOpened" class="text search-input"
+                    placeholder="جستجو کنید..." />
+                </div>
+              </nav>
+            </header>
+
+            <!-- <ul class="navbar-nav text-white p-0 position-relative">
+                <li class="nav-item py-4 px-3 d-flex align-items-center" routerLink="/home" [routerLinkActive]="'active-link'">
+                  <a class="nav-link text-center p-0">
+                    صفحه اصلی
+                  </a>
+                </li>
+
+                <li dropdown class="nav-item py-4 px-3 dropdown position-static">
+                  <a id="button-basic" dropdownToggle class="nav-link px-0 dropdown-toggle flex-column justify-content-center align-items-center"
+                    aria-controls="dropdown-basic">
+                    <span class="d-flex align-items-center">
+                      تور ها
+                      <mat-icon>keyboard_arrow_down</mat-icon>
+                    </span>
+                  </a>
+
+
+                  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow dropdown-menu-right text-right w-100 justify-content-around p-3"
+                    role="menu" aria-labelledby="button-basic">
+                    <li role="menuitem" class="w-50 d-inline-block px-3">
+                      <h4 class="title">تور های در حال اجرا</h4>
+                      <mat-nav-list class="pt-0">
+                        <a mat-list-item *ngFor="let item of runningTours;let i=index" routerLink="/tours/details"
+                          [queryParams]="{id:item.id}" class="border-bottom text-muted">
+                          <mat-icon>keyboard_arrow_left</mat-icon>
+                          {{runningToursTitle[i]}}
+                        </a>
+                      </mat-nav-list>
+                    </li>
+                    <li role="menuitem" class="w-50 d-inline-block px-3">
+                      <h4 class="title">دسته بندی</h4>
+                      <mat-nav-list class="pt-0">
+                        <a *ngFor="let item of categoryTours;let i = index" mat-list-item routerLink="/tours"
+                          [queryParams]="{id:item.id}" class="border-bottom text-muted">
+                          <mat-icon>keyboard_arrow_left</mat-icon>
+                          {{item.text}}
+                        </a>
+                      </mat-nav-list>
+                    </li>
+                  </ul>
+                </li>
+
+                <li dropdown class="nav-item py-4 px-3 dropdown position-static">
+                  <a id="button-basic" dropdownToggle class="nav-link px-0 dropdown-toggle flex-column justify-content-center align-items-center"
+                    aria-controls="dropdown-basic">
+                    <span class="d-flex align-items-center">
+                      فرم ها و مدارک
+                      <mat-icon>keyboard_arrow_down</mat-icon>
+                    </span>
+                  </a>
+                  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow dropdown-menu-right text-right w-100 justify-content-around p-3"
+                    role="menu" aria-labelledby="button-basic">
+                    <li role="menuitem" class="w-50 d-inline-block px-3">
+                      <h4 class="title mb-4">دانلود فرم مشخصات فردی</h4>
+                      <button mat-raised-button class="w-100 download-btn mb-0 h5 d-flex align-items-center justify-content-center">
+                        <mat-icon class="ml-1">cloud_download</mat-icon>
+                        دانلود
+                      </button>
+                    </li>
+                    <li role="menuitem" class="w-50 d-inline-block px-3">
+                      <h4 class="title">مدارک مربوط به سفارت ها</h4>
+                      <mat-nav-list class="pt-0">
+                        <a *ngFor="let item of contries;let i = index" [queryParams]="{country:item}" mat-list-item
+                          routerLink="/madarek" class="border-bottom text-muted">
+                          <mat-icon>keyboard_arrow_left</mat-icon>
+                          {{item}}
+                        </a>
+                      </mat-nav-list>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item py-4 px-3 d-flex align-items-center" routerLink="/blog" [routerLinkActive]="'active-link'">
+                  <a class="nav-link text-center p-0">
+                    مقاله
+                  </a>
+                </li>
+
+                <li class="nav-item py-4 px-3 d-flex align-items-center" routerLink="/contact-us" [routerLinkActive]="'active-link'">
+                  <a class="nav-link text-center p=-0">
+                    تماس با ما
+                  </a>
+                </li>
+
+                <li class="nav-item py-4 px-3 d-flex align-items-center" routerLink="/about-us" [routerLinkActive]="'active-link'">
+                  <a class="nav-link text-center p-0">
+                    درباره ما
+                  </a>
+                </li>
+
+                <li class="nav-item py-4 px-3 d-flex align-items-center" (click)="showSearch()">
+                  <mat-icon>search</mat-icon>
+                </li>
+                <mat-form-field id="search-input" [floatLabel]="'never'" class="position-absolute w-100">
+                  <input #search matInput type="text" class="text-muted" placeholder="جستجو کنید..." (keydown.enter)="onSearch(term)"
+                    [(ngModel)]="term">
+                  <div class="input-btn-wrapper position-absolute d-flex bg-light pr-2">
+                    <div class="pl-2">
+                      <button mat-button mat-icon-button (click)="onSearch(term)">
+                        <mat-icon class="text-muted">search</mat-icon>
+                      </button>
+                    </div>
+                    <div class="pr-2 border-right">
+                      <button mat-button mat-icon-button (click)="closeSearch()">
+                        <mat-icon class="text-muted">close</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </mat-form-field>
+              </ul> -->
+
+
+              <!-- <form class="form-inline" dir="rtl">
+                <input (keydown.enter)="onSearch(term)" [(ngModel)]="term" class="form-control w-75" type="search"
+                  placeholder="جستجو کنید..." name="search">
+                <div class="input-group-append" (click)="onSearch(term)">
+                  <span class="input-group-text" id="basic-addon1">
+                    <mat-icon>search</mat-icon>
+                  </span>
+                </div>
+              </form> -->
+
+              <a *ngIf="sidenav" class="navbar-brand mr-0" routerLink="/home">
+                <img class="d-block w-100" src="assets/images/logo.png" alt="">
+              </a>
+            </div>
+            <a *ngIf="!sidenav" class="navbar-brand mr-0" routerLink="/home">
+              <img class="d-block w-100" src="assets/images/logo.png" alt="">
+            </a>
+
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </div>

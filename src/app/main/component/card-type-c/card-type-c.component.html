@@ -1,0 +1,47 @@
+<!-- <mat-card class="example-card ">
+  <div class="img-wrapper">
+    <img [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}" class="m-0 w-100" mat-card-image [src]="tour.gallery[0]">
+  </div>
+  <mat-card-content dir="rtl">
+    <div class="row pt-2">
+      <div class="col-12 title d-flex justify-content-between align-items-center" [routerLink]="['/tours/details']"
+        [queryParams]="{id:tour.id}">
+        <div class="h5 mb-0 font-weight-bold">
+          {{title}}
+        </div>
+        <div class="text-danger text-left h6 mb-0">
+          <div>
+            <span> از</span>
+            <span class="font-weight-bold"> {{ tour.adult.tooman }} تومان</span>
+          </div>
+          <div>
+            <span> + </span>
+            <span class="font-weight-bold">{{tour.adult.euro}} یورو</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card> -->
+<div class="card-wrapper position-relative">
+  <div class="img-wrapper position-relative">
+    <div [style.backgroundImage]="img" [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}"  class="overlay position-absolute w-100 h-100"></div>
+  </div>
+  <div class="info position-absolute w-100 text-white" [routerLink]="['/tours/details']" [queryParams]="{id:tour.id}">
+    <h5 class="mb-3">
+      <span class="medium">{{title}}</span>
+      <span class="medium"> / </span>
+      <span class="light h6 text-white">{{tour.days}}</span>
+      <span class="light h6 text-white"> روزه </span>
+    </h5>
+    <div class="h6 mb-0">
+      <div>
+        <span class="light"> از</span>
+        <span class="medium"> {{ tour.adult.tooman | number: '0.'}} </span>
+        <span class="light">تومان + </span>
+        <span class="medium">{{tour.adult.euro | number: '0.'}} </span>
+        <span class="light">یورو</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<!-- <form (ngSubmit)="onSUbmit(form)" class="px-3 pt-5 pb-3 shadow bg-white" [formGroup]="form">
+  <h4>پیام شما : </h4>
+  <div class="row pt-4" dir="rtl">
+    <div class="col-md-4">
+      <mat-form-field class="w-100 py-2">
+        <input [(ngModel)]="user.fullName" matInput placeholder="نام شما" formControlName="fullName" required name="fullName">
+        <span matSuffix>
+          <mat-icon>person</mat-icon>
+        </span>
+        <mat-error *ngIf="form.get('fullName').hasError('required')">{{'لطفا نام خود را بصورت کامل وارد کنید.'}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100 py-2">
+        <input [(ngModel)]="user.telephone" matInput placeholder="شماره تماس" formControlName="telephone" required name="telephone">
+        <span matSuffix>
+          <mat-icon>phone</mat-icon>
+        </span>
+        <mat-error *ngIf="form.get('telephone').hasError('required')">{{'لطفا شماره تماس خود را وارد کنید.'}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100 py-2">
+        <input [(ngModel)]="user.email" matInput placeholder="ایمیل" formControlName="email" required name="email">
+        <span matSuffix>
+          <mat-icon>email</mat-icon>
+        </span>
+        <mat-error *ngIf="form.get('email').hasError('required')">{{'لطفا ایمیل خود را وارد کنید.'}}</mat-error>
+        <mat-error *ngIf="form.get('email').hasError('email')">{{'لطفا یک ایمیل صحیح وارد کنید.'}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-8">
+      <mat-form-field class="w-100">
+        <textarea matInput rows="10" placeholder="پیام شما...." formControlName="message" required name="message"></textarea>
+        <mat-error *ngIf="form.get('message').hasError('required')">{{'لطفا پیغام خود را بنویسید.'}}</mat-error>
+      </mat-form-field>
+      <div class="text-left">
+        <button mat-raised-button color="primary" type="submit">ارسال پیام</button>
+      </div>
+    </div>
+  </div>
+</form> -->

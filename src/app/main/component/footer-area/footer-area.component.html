@@ -1,0 +1,75 @@
+<div class="container-fluid bg-dark top-footer" dir="rtl">
+  <div class="bg-world"></div>
+  <div class="row">
+    <div class="container">
+      <div class="row pt-4 pb-3 pb-lg-0">
+
+        <div class="col-md-6 col-lg-4 mt-3 mt-sm-0" dir="rtl">
+          <lined-title [title]="'تماس با ما'" [textAlign]="'right'" [titleSize]="20" [lineColor]="'#464646'"
+            [titleColor]="'#8b8b8b'"></lined-title>
+          <address [color]="'white'" class="mt-4 d-block"></address>
+        </div>
+
+        <div class="col-md-6 col-lg-3" dir="rtl">
+          <lined-title [title]="'لینک ها'" [textAlign]="'right'" [titleSize]="20" [lineColor]="'#464646'" [titleColor]="'#8b8b8b'"></lined-title>
+          <mat-nav-list class="pt-0 links mt-3">
+            <a mat-list-item routerLink="/tours" [queryParams]="{id:'1'}" class="text-light">
+              <mat-icon mat-list-icon color="primary">keyboard_arrow_left</mat-icon>
+              تورهاي توریستی
+            </a>
+            <a mat-list-item routerLink="/tours" [queryParams]="{id:'2'}" class="text-light">
+              <mat-icon mat-list-icon color="primary">keyboard_arrow_left</mat-icon>
+              تورهاي نمایشگاهی
+            </a>
+            <a mat-list-item routerLink="/contact-us" class="text-light">
+              <mat-icon mat-list-icon color="primary">keyboard_arrow_left</mat-icon>
+              تماس با ما
+            </a>
+            <a mat-list-item routerLink="/about-us" class="text-light">
+              <mat-icon mat-list-icon color="primary">keyboard_arrow_left</mat-icon>
+              درباره ما
+            </a>
+            <a mat-list-item routerLink="/blog" class="text-light">
+              <mat-icon mat-list-icon color="primary">keyboard_arrow_left</mat-icon>
+              مقاله
+            </a>
+          </mat-nav-list>
+        </div>
+
+        <div class="col-md-6 col-lg-3 mt-3 mt-md-0">
+          <lined-title [title]="'مدارک'" [textAlign]="'right'" [titleSize]="20" [lineColor]="'#464646'" [titleColor]="'#8b8b8b'"></lined-title>
+          <mat-nav-list class="pt-0 links mt-3">
+            <a *ngFor="let item of contries;let i = index" [queryParams]="{country:item}" mat-list-item routerLink="/madarek"
+              class="text-light">
+              <mat-icon mat-list-icon color="primary">keyboard_arrow_left</mat-icon>
+              {{item}}
+            </a>
+          </mat-nav-list>
+        </div>
+
+        <div class="col-md-6 col-lg-2 mt-3 mt-md-0">
+          <lined-title [title]="'دنبال کنید'" [textAlign]="'right'" [titleSize]="20" [lineColor]="'#464646'"
+            [titleColor]="'#8b8b8b'"></lined-title>
+          <social-links class="d-block mt-4" [socialLinks]="socialLinks" [inline]="true" [width]="14"></social-links>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-dark border-top bottom-footer" dir="rtl">
+  <div class="row">
+    <div class="container">
+      <div class="row py-1 align-items-center">
+        <div class="col-sm-8 text-center text-sm-right mb-2 mb-sm-0">
+          <p class="mb-0 text-muted light">
+            تمام حقوق سایت محفوظ است.
+          </p>
+        </div>
+        <div class="col-sm-4 text-center text-sm-left text-muted bold">
+          copyright @ 2018
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
